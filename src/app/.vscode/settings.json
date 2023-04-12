@@ -1,0 +1,9 @@
+{
+  "htmlhint.options": {
+    "attr-lowercase": [
+      "[(ngModel)]",
+      "matInput"
+    ],
+    "doctype-first": false
+  }
+}
