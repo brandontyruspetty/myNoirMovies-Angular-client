@@ -46,7 +46,7 @@ export class FetchApiDataService {
   }
 
   //get JSON object of a single movie
-  getSingleMovie(title: string): Observable<any> {
+  getMovieById(title: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
       .get(`${apiUrl}/movies/${title}`,
