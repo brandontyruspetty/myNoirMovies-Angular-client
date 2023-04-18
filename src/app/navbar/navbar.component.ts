@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   //navigates to user profile page
   toProfile(): void {
-    this.router.navigate(['profile'])
+    this.router.navigate(['profile']);
   }
 
   //logs out users, clears tokem and username from local storage
