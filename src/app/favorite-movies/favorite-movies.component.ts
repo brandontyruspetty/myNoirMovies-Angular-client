@@ -6,6 +6,7 @@ import { SynopsisPageComponent } from '../synopsis-page/synopsis-page.component'
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 @Component({
   selector: 'app-favorite-movies',
   templateUrl: './favorite-movies.component.html',
@@ -14,6 +15,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class FavoriteMoviesComponent implements OnInit {
   favorites: any[] = [];
   favoriteMovies: any[] = [];
+
+
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -23,6 +27,7 @@ export class FavoriteMoviesComponent implements OnInit {
   ngOnInit(): void {
     this.getFavoriteMovies();
   }
+
 
   getFavoriteMovies(): void {
     this.favorites, this.favoriteMovies = [];
@@ -36,11 +41,11 @@ export class FavoriteMoviesComponent implements OnInit {
       });
     });
   }
-
   //check if a movie is a user's favorite
   isFavorite(id: string): boolean {
-    return this.favorites.includes(id);
+    return this.favoriteMovies.includes(id);
   }
+
   //add a movie to a user's favorites
   addToFavorites(id: string): void {
     this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
