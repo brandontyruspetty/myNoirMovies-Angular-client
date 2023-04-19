@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GenrePageComponent } from '../genre-page/genre-page.component';
 import { SynopsisPageComponent } from '../synopsis-page/synopsis-page.component';
-import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-movie-card',
