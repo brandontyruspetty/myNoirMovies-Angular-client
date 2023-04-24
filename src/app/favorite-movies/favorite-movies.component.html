@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <h2 class="favorite-movies_title">Favorite Movies</h2>
 <div class="favorite-movies-view">
-  <mat-card *ngFor="let movie of favoriteMovies; let i=index;" class="movie-card">
+  <mat-card *ngFor="let movie of favoriteMovies" class="movie-card">
     <mat-card-header>
       <mat-card-title><h2>{{ movie.Title }}</h2></mat-card-title>
       <mat-card-subtitle>
-        Directed by: {{ movie.Directors.Name }}
+        Directed by: {{ movie.Director.Name }}
       </mat-card-subtitle>
     </mat-card-header>
     <img src="{{ movie.ImagePath }}" alt="{{ movie.Title }}" />
