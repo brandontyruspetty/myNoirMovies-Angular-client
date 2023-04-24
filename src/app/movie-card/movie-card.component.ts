@@ -11,6 +11,10 @@ import { SynopsisPageComponent } from '../synopsis-page/synopsis-page.component'
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
+
+/**
+ * the MovieCardComponent class fetches and displays all movies in card format
+ */
 export class MovieCardComponent {
   movies: any[] = [];
   favorites: any[] = [];
@@ -24,7 +28,10 @@ export class MovieCardComponent {
     this.getMovies();
     this.getFavorites();
   }
-
+  /**
+   * fetch all movies with FetchApiService.getAllMovies()
+   * @returns all movies in an array of objects
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -32,7 +39,10 @@ export class MovieCardComponent {
       return this.movies;
     });
   }
-  //get user info and set favorites
+  /**
+   * fetch user's favorite movies with FetchApiService.getUser()
+   * @returns an empty array or an array of movies favored by the user
+   */
   getFavorites(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favorites = resp.FavoriteMovies;
@@ -40,12 +50,19 @@ export class MovieCardComponent {
     });
   }
 
-  //check if a movie is a user favorite
+  /**
+   * check if a movie is included in user's favorites
+   * @param id 
+   * @returns a boolean value
+   */
   isFavorite(id: string): boolean {
     return this.favorites.includes(id);
   }
 
-  //add a movie to user's favorites
+  /**
+   * add one movie id into the user's favorite with FetchApiService.addFavoriteMovie()
+   * @param id 
+   */
   addToFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
@@ -56,7 +73,10 @@ export class MovieCardComponent {
     });
   }
 
-  //removes a movie from user's favorites
+  /**
+   * removes a movie id from the user's favorites with FetchApiService.deleteFavoriteMovie()
+   * @param id 
+   */
   deleteFromFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.deleteFavoriteMovie(id).subscribe((result) => {
@@ -67,6 +87,12 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * opens the Director dialog modal displaying director info
+   * @param name 
+   * @param bio 
+   * @param birthday 
+   */
   openDirector(name: string, bio: string, birthday: string): void {
     this.dialog.open(DirectorPageComponent, {
       data: {
@@ -78,6 +104,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * opens the Genre dialog modal displaying the genre info
+   * @param name 
+   * @param description 
+   */
   openGenre(name: string, description: string): void {
     this.dialog.open(GenrePageComponent, {
       data: {
@@ -88,6 +119,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * opens the Synopsis dialog modal displaying the synopsis info
+   * @param title 
+   * @param description 
+   */
   openSynopsis(title: string, description: string): void {
     this.dialog.open(SynopsisPageComponent, {
       data: {
