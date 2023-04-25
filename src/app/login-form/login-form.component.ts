@@ -31,13 +31,11 @@ export class LoginFormComponent implements OnInit {
   // This is the function responsible for sending the form inputs to the backend
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
-      console.log("login fetch successful");
       let user = result.user.Username;
       let token = result.token;
       localStorage.setItem('user', user);
       localStorage.setItem('token', token);
       console.log(user, token);
-      console.log("login storage success");
       // Logic for a successful user registration goes here! (To be implemented)
       this.dialogRef.close(); // This will close the modal on success!
       this.router.navigate(['movies']);
