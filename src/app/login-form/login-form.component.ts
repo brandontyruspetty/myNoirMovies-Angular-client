@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, importProvidersFrom } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 // You'll use this import to close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
 // This import brings in the API calls we created in 6.2
@@ -30,20 +30,23 @@ export class LoginFormComponent implements OnInit {
   // This is the function responsible for sending the form inputs to the backend
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
-      localStorage.setItem('user', result.user.Username);
-      localStorage.setItem('token', result.token);
+      let user = result.user.Username;
+      let token = result.token;
+      localStorage.setItem('user', user);
+      localStorage.setItem('token', token);
+      console.log(user, token);
       // Logic for a successful user registration goes here! (To be implemented)
       this.dialogRef.close(); // This will close the modal on success!
-      console.log(result)
+      this.router.navigate(['movies']);
       this.snackBar.open('You are now logged in!', 'OK', {
         duration: 2000
       });
-      this.router.navigate(['movies']);
-    }, (response) => {
-      this.snackBar.open('User login failed!', 'OK', {
-        duration: 2000
+    },
+      (result) => {
+        this.snackBar.open('User login failed!', 'OK', {
+          duration: 2000
+        });
       });
-    });
   }
 
 }
