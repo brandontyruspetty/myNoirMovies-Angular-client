@@ -1,4 +1,4 @@
-$color: hsl(200, 5%, 85%);
+$color: hsl(30, 5%, 85%);
 
 .welcome-page {
   background-color: $color !important;
@@ -12,7 +12,7 @@ $color: hsl(200, 5%, 85%);
   box-shadow: 0 .75em 1.25em #0004;
 }
 
-h2.welcome-page__title {
+h1.welcome-page__title {
   text-align: center;
   margin: 0;
   margin-block: 0 !important;
