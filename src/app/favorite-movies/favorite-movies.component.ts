@@ -5,6 +5,7 @@ import { DirectorPageComponent } from '../director-page/director-page.component'
 import { SynopsisPageComponent } from '../synopsis-page/synopsis-page.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { defaultThrottleConfig } from 'rxjs/internal/operators/throttle';
 
 @Component({
   selector: 'app-favorite-movies',
@@ -111,13 +112,15 @@ export class FavoriteMoviesComponent implements OnInit {
    * @param name
    * @param bio
    * @param birthday
+   * @param death
    */
-  openDirector(name: string, bio: string, birthday: string): void {
+  openDirector(name: string, bio: string, birthday: string, death: string): void {
     this.dialog.open(DirectorPageComponent, {
       data: {
         Name: name,
         Bio: bio,
-        Birthday: birthday,
+        Birth: birthday,
+        Death: death,
       },
       width: '400px',
     });
