@@ -111,15 +111,15 @@ export class FavoriteMoviesComponent implements OnInit {
   /**open director info from DirectorPageComponent displaying info
    * @param name
    * @param bio
-   * @param birthday
+   * @param birth
    * @param death
    */
-  openDirector(name: string, bio: string, birthday: string, death: string): void {
+  openDirector(name: string, bio: string, birth: string, death: string): void {
     this.dialog.open(DirectorPageComponent, {
       data: {
         Name: name,
         Bio: bio,
-        Birth: birthday,
+        Birth: birth,
         Death: death,
       },
       width: '400px',
