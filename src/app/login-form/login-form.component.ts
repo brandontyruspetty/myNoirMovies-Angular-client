@@ -14,6 +14,11 @@ import { Router } from '@angular/router';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
+
+/**
+ * LoginFormComponent is a modal with inputs for 
+ * username and password.  Successful login navigates to movies view.
+ */
 export class LoginFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '' };
@@ -25,6 +30,10 @@ export class LoginFormComponent implements OnInit {
     private router: Router
   ) { }
 
+  /**
+   * Calls userLogin() found in FetchApiDataService
+   * with user input field data (object) as an argument.
+   */
 
   ngOnInit(): void {
   }
