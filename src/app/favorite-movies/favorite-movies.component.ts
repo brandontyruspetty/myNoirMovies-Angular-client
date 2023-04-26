@@ -93,7 +93,10 @@ export class FavoriteMoviesComponent implements OnInit {
     });
   }
 
-  //open genre info from GenrePageComponent
+  /**open genre info from GenrePageComponent displaying info
+   * @param name
+   * @param description
+   */
   openGenre(name: string, description: string): void {
     this.dialog.open(GenrePageComponent, {
       data: {
@@ -104,7 +107,11 @@ export class FavoriteMoviesComponent implements OnInit {
     });
   }
 
-  //open director info from DirectorPageComponent
+  /**open director info from DirectorPageComponent displaying info
+   * @param name
+   * @param bio
+   * @param birthday
+   */
   openDirector(name: string, bio: string, birthday: string): void {
     this.dialog.open(DirectorPageComponent, {
       data: {
@@ -116,7 +123,10 @@ export class FavoriteMoviesComponent implements OnInit {
     });
   }
 
-  //open movie details from SynopsisPageComponent
+  /** open movie details from SynopsisPageComponent
+   *@param title
+   @param description 
+   */
   openSynopsis(title: string, description: string): void {
     this.dialog.open(SynopsisPageComponent, {
       data: {
