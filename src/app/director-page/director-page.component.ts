@@ -15,7 +15,7 @@ export class DirectorPageComponent implements OnInit {
     public data: {
       Name: string;
       Bio: string;
-      Birthday: string;
+      Birthdate: string;
     }
   ) { }
 
