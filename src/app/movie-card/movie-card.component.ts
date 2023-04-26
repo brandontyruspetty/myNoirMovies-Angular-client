@@ -92,13 +92,15 @@ export class MovieCardComponent {
    * @param name 
    * @param bio 
    * @param birthday 
+   * @param death
    */
-  openDirector(name: string, bio: string, birthdate: string): void {
+  openDirector(name: string, bio: string, birthdate: string, death: string): void {
     this.dialog.open(DirectorPageComponent, {
       data: {
         Name: name,
         Bio: bio,
         Birthdate: birthdate,
+        Death: death,
       },
       width: '400px',
     });
