@@ -1,7 +1,7 @@
 $color: hsl(42, 61%, 56%);
 
 .welcome-page {
-  background-color: $color !important;
+  background-color: $color hsl(42, 61%, 56%);
   display: flex;
   flex-direction: column;
   justify-content: center;
