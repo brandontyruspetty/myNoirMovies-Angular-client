@@ -13,6 +13,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './user-registration-form.component.html',
   styleUrls: ['./user-registration-form.component.scss']
 })
+
+/**
+ * UserRegistrationFormComponent is a modal with inputs for username, password, email and birthday.  
+ * Successful login navigates to the movies page.
+ */
 export class UserRegistrationFormComponent implements OnInit {
 
   @Input() userData = { Username: "", Password: "", Email: "", Birthday: "" };
@@ -25,7 +30,9 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //this is the function responsible for sending the form inputs to the backend
+  /**
+   * this is the function responsible for sending the form inputs to the backend
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(() => {
       //logic for a successful user resgistration goes here (to be implemented)
