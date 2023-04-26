@@ -10,6 +10,12 @@ import { formatDate } from '@angular/common';
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss']
 })
+
+/**
+ * ProfilePageComponent provides the user profile view.
+ * Displays user info with the ability to modify info or delete user account.
+ * User can also view favorite movies on this page.
+ */
 export class ProfilePageComponent implements OnInit {
   user: any = {};
   initialInput: any = {};
@@ -32,7 +38,10 @@ export class ProfilePageComponent implements OnInit {
     this.getUserInfo();
   }
 
-  //fetch user data via API
+  /**
+   * fetches (GETS) user data with fetchApiData.getUser()
+   * @returns an object of the user's info
+   */
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -46,7 +55,10 @@ export class ProfilePageComponent implements OnInit {
 
 
 
-  //update user info
+  /**
+   * update (PUT) user info with fetchApiData.editUser()
+   * 
+  */
   updateUserInfo(): void {
     this.fetchApiData.editUser(this.updatedUser).subscribe((result) => {
       console.log(result);
@@ -71,7 +83,9 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-  //delete user data for the user that is logged in
+  /** 
+   * delete (DELETE) user data for the user that is logged in with fetchApiData.deleteUser()
+  */
   deleteAccount(): void {
     if (confirm('All data will be lost if you continue!')) {
       this.router.navigate(['welcome']).then(() => {
