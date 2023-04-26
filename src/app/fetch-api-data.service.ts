@@ -4,6 +4,10 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+/**
+ * declaring an API URL that will provide 
+ * the data for the client app
+ */
 const apiUrl = 'https://mynoirmovies.herokuapp.com';
 @Injectable({
   providedIn: 'root'
@@ -12,7 +16,9 @@ export class FetchApiDataService {
 
   constructor(private http: HttpClient) { }
 
-  //creates new user
+  /**
+   * creates new user and expects a JSON in the request body
+   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -20,7 +26,9 @@ export class FetchApiDataService {
       .pipe(catchError(this.handleError)
       );
   }
-  //allows user login with authorization of credentials
+  /**
+   * allows user login with authorization of credentials
+  */
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -29,7 +37,9 @@ export class FetchApiDataService {
       );
   }
 
-  //get JSON object of all movies
+  /**
+   * get JSON object of all movies
+   */
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
@@ -45,7 +55,9 @@ export class FetchApiDataService {
       );
   }
 
-  //get JSON object of a single movie
+  /**
+   * get JSON object of a single movie by _id
+  */
   getMovieById(title: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
@@ -60,7 +72,10 @@ export class FetchApiDataService {
         catchError(this.handleError)
       );
   }
-  //get JSON object of director
+
+  /**
+   * get JSON object of director by name
+  */
   getDirector(directorName: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
@@ -76,7 +91,9 @@ export class FetchApiDataService {
       );
   }
 
-  //get genre description
+  /**
+   * get genre description by name
+  */
   getGenre(genreName: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
@@ -92,7 +109,9 @@ export class FetchApiDataService {
       );
   }
 
-  //get JSON object of user by username
+  /**
+   * get JSON object of user by username
+  */
   getUser(): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
@@ -109,7 +128,9 @@ export class FetchApiDataService {
       );
   }
 
-  //get array of favorite movies for user
+  /**
+   * get array of favorite movies for user by username
+  */
   getFavoriteMovies(): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
@@ -126,7 +147,9 @@ export class FetchApiDataService {
       );
   }
 
-  //add a movie to user's Favorite Movies
+  /**
+   * add a movie to user's Favorite Movies by _id
+  */
   addFavoriteMovie(movieId: string): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
@@ -144,7 +167,9 @@ export class FetchApiDataService {
         catchError(this.handleError)
       );
   }
-  //edit user
+  /**
+   * edit user info by username
+   */
   editUser(updatedUser: any): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
@@ -155,7 +180,9 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  //delete user
+  /**
+   * delete existing user by username
+   */
   deleteUser(): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
@@ -166,7 +193,9 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  //delete movie from Favorite Movies
+  /**
+   * delete movie from Favorite Movies by _id
+   */
   deleteFavoriteMovie(movieId: string): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
