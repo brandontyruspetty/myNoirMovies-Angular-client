@@ -3,7 +3,7 @@
 This is the client-side for an appliction called myNoirMovies based on its existing server-side code (REST API and database), with supporting documentation. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
 
 ## Key Features
-+ The app has a welcome view where users will be able to either log-in or register if they are a nes user
++ The app has a welcome view where users will be able to either log-in or register if they are a new user
 - After authentication, the user is logged in and is directed to the movie view, a page displaying all movies
 * Single movie cards contain the following features:
   
